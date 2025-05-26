@@ -1,16 +1,90 @@
 <!DOCTYPE html>
-<html>
-<head lang="uk">
-    <meta charset="UTF-8">
-    <title>My Page</title>
+<html lang="uk">
 
-
-    <link rel="stylesheet" type="text/css" href="main.css" />
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="author" content="Zmeul Bogdan" />
+	<meta name="description" content="Кошик покупок з можливістю додавання товарів, зміни кількості та позначення як куплених." />
+	<meta name="keywords" content="кошик, покупки, додати товар, кількість, куплено" />
+	<title>Кошик покупок</title>
+	<link rel="stylesheet" href="main.css" />
 </head>
+
 <body>
-	<span class="product-item">
-		Apple
-		<span class="amount">5</span>
-	</span>
+
+	<main class="shopping-cart-container">
+
+		<section class="products">
+			<section class="products-section">
+				<form class="add-product-form">
+					<input class="add-product-input" type="text" placeholder="Назва товару" />
+					<button type="button" class="btn add-product">Додати</button>
+				</form>
+			</section>
+			<section class="products-section">
+				<div class="product">
+					<p class="name purchased">Помідори</p>
+					<div class="quantity no-buttons">
+						<p class="count">2</p>
+					</div>
+					<div class="action-buttons">
+						<button class="btn purchase">Не куплено</button>
+					</div>
+				</div>
+			</section>
+			<section class="products-section">
+				<div class="product">
+					<p class="name">Печиво</p>
+					<div class="quantity">
+						<button class="btn red round">−</button>
+						<p class="count">2</p>
+						<button class="btn green round">+</button>
+					</div>
+					<div class="action-buttons">
+						<button class="btn purchase">Куплено</button>
+						<button class="btn red cross">×</button>
+					</div>
+				</div>
+			</section>
+			<div class="products-section">
+				<div class="product">
+					<input type="text" class="name-input" value="Сир" />
+					<div class="quantity">
+						<button class="btn red round disabled">−</button>
+						<p class="count">1</p>
+						<button class="btn green round">+</button>
+					</div>
+					<div class="action-buttons">
+						<button class="btn purchase">Куплено</button>
+						<button class="btn red cross">×</button>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<aside class="sidebar-statistics">
+			<section class="sidebar-statistics-section">
+				<h3>Залишилося</h3>
+			</section>
+			<section class="sidebar-statistics-section">
+				<div class="remaining">
+					<span class="tag light-gray">Печиво <span class="badge">2</span></span>
+					<span class="tag light-gray">Сир <span class="badge">1</span></span>
+				</div>
+			</section>
+			<section class="sidebar-statistics-section">
+				<h3>Куплено</h3>
+			</section>
+			<section class="sidebar-statistics-section">
+				<div class="bought">
+					<span class="tag light-gray purchased">Помідори <span class="badge purchased">2</span></span>
+				</div>
+			</section>
+		</aside>
+
+	</main>
+
 </body>
+
 </html>

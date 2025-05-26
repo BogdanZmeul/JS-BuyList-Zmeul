@@ -1,17 +1,261 @@
-.product-item {
-	background-color: gray;
-	display: inline-block;
-	height: 25px;
-	padding: 5px;
-	border-radius: 5px;
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-family: Arial, sans-serif;
 }
 
-.amount {
-	background-color: yellow;
-	border-radius: 10px;
-	
-	display: inline-block;
-	height: 20px;
-	width: 20px;
-	text-align: center;
+body {
+	background: #f0f0f0;
+	padding: 20px;
+}
+
+.shopping-cart-container {
+	display: flex;
+	gap: 20px;
+	align-items: flex-start;
+}
+
+.products,
+.sidebar-statistics {
+	background: white;
+	padding: 20px;
+	border-radius: 5px;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.products {
+	flex: 2;
+    display: flex; /* Робить його flex-контейнером */
+    flex-direction: column; /* Розташовує дочірні елементи вертикально */
+    padding: 0; /* Прибираємо внутрішні відступи з самого .left */
+    overflow: hidden; /* Важливо для заокруглення ліній */
+}
+
+.product {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 10px 0;
+	gap: 10px;
+	/* Залишаємо gap для проміжків між основними блоками товару */
+}
+
+.products-section {
+    padding: 5px 10px; /* Вертикальний і горизонтальний відступи всередині кожної секції */
+    border-bottom: 1px solid #eee; /* Створює лінію-роздільник */
+}
+
+.products-section:last-child {
+    border-bottom: none; /* Прибирає нижню лінію в останній секції */
+}
+
+.products-section:first-child {
+    flex-grow: 1; /* Дозволяє цій секції займати доступний простір */
+    padding-top: 15px; /* Збільшимо верхній padding */
+    padding-bottom: 15px; /* Збільшимо нижній padding */
+}
+
+.sidebar-statistics {
+	flex: 1;
+    display: flex; /* Робить його flex-контейнером */
+    flex-direction: column; /* Розташовує дочірні елементи вертикально */
+    padding: 0; /* Прибираємо внутрішні відступи з самого .right */
+    overflow: hidden; /* Важливо для заокруглення ліній */
+}
+
+.sidebar-statistics-section {
+    padding: 15px 20px; /* Вертикальний і горизонтальний відступи всередині кожної секції */
+    border-bottom: 1px solid #eee; /* Створює лінію-роздільник */
+}
+
+.sidebar-statistics-section:last-child {
+    border-bottom: none; /* Прибирає нижню лінію в останній секції */
+}
+
+.add-product-form{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-product-input{
+	flex: 1;
+    padding: 10px; /* Збільшимо padding, щоб інпут був вищим */
+    height: 40px; /* Встановимо фіксовану висоту, щоб точно відповідати кнопці */
+    border-radius: 5px;
+	border-bottom-right-radius: 0%;
+	border-top-right-radius: 0%;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.name,
+.name-input {
+	flex-basis: 30%;
+	/* Надаємо їм базовий розмір */
+	min-width: 100px;
+	font-size: 16px;
+	margin-right: -100px;
+	/* <-- ДОДАНО: Невеликий від'ємний правий марджін, щоб змістити наступний елемент ліворуч */
+}
+
+.name.purchased {
+	text-decoration: line-through;
+}
+
+.name-input {
+	padding: 5px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	flex-basis: 20%;
+	margin-right: -23px;
+	min-width: 15px;
+}
+
+.quantity {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 5px;
+	flex-basis: 120px;
+	min-width: 90px;
+	/* Якщо попередній margin-right не спрацює достатньо, можна додати тут margin-left: -5px; */
+}
+
+.quantity.no-buttons {
+	margin-left: -40px;
+	/* Відключаємо від'ємний margin для випадку без кнопок */
+}
+
+.count {
+	width: 30px;
+	height: 30px;
+	display: flex;          /* <-- ДОДАНО: Робить його flex-контейнером */
+    justify-content: center; /* <-- ДОДАНО: Центрує вміст горизонтально */
+    align-items: center;    /* <-- ДОДАНО: Центрує вміст вертикально */
+	border-radius: 5px;
+	font-size: 16px;
+	background-color: #ccc;
+}
+
+.action-buttons {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	/* Простір між кнопками "Куплено" і "х" */
+	flex-basis: auto;
+	/* Дозволяємо займати стільки місця, скільки потрібно */
+	min-width: 100px;
+	/* Мінімальна ширина для кнопок дії */
+	justify-content: flex-end;
+	/* Вирівнюємо кнопки вправо */
+	margin-right: 15px;
+}
+
+.btn {
+	border: none;
+	color: black;
+	font-size: 16px;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.btn.round {
+	border-radius: 50%;
+	width: 35px;
+	height: 35px;
+	color: white;
+}
+
+.btn.disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+.btn.cross {
+	border-radius: 5px;
+	color: white;
+	width: 30px;
+	height: 30px;
+	font-size: 18px;
+	width: 35px;
+	height: 35px;
+}
+
+.btn.red {
+	background: #e74c3c;
+}
+
+.btn.green {
+	background: #2ecc71;
+}
+
+.btn.purchase {
+	background-color: #f0f0f0; /* Дуже світло-сірий, як на фото */
+    color: black;              /* Текст чорний */
+    border-radius: 5px;
+    width: 120px; /* Ширина кнопки */
+	height: 35px; /* Висота кнопки */
+    padding: 5px 10px;
+	font-size: 14px;
+    border: 1px solid #ccc;  /* Легка сіра обводка, як на фото */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Легка тінь для об'єму */
+    /* text-shadow: none; */  /* Забезпечуємо відсутність тіні від тексту */
+}
+
+.btn.add-product {
+	background: #3498db;
+    color: white;
+    /* border-radius: 5px;  <-- Видалимо, щоб налаштувати окремо для прикріплення */
+    border-top-right-radius: 5px;   /* Заокруглення лише справа зверху */
+    border-bottom-right-radius: 5px; /* Заокруглення лише справа знизу */
+    border-top-left-radius: 0;     /* Без заокруглення зліва зверху */
+    border-bottom-left-radius: 0;  /* Без заокруглення зліва знизу */
+    width: 100px; /* Приблизна ширина, можливо, знадобиться налаштувати */
+    height: 40px; /* Встановимо висоту таку ж, як у input */
+    padding: 0 15px; /* Відступи, можливо, краще відмовитися від padding-top/bottom */
+    font-size: 16px; /* Забезпечимо розмір шрифту */
+	font-weight: bold;
+	box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Додамо легку тінь для об'єму */
+}
+
+.remaining,
+.bought {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tag {
+	display: inline-flex;
+	 display: flex;          /* <-- ДОДАНО: Робить його flex-контейнером */
+    justify-content: center; /* <-- ДОДАНО: Центрує вміст горизонтально */
+    align-items: center;    /* <-- ДОДАНО: Центрує вміст вертикально */
+	color: black;
+	border-radius: 5px;
+	padding: 5px 10px;
+	font-size: 14px;
+	width: 100px;
+	height: 40px;
+	background: #ccc;
+}
+
+.tag.purchased {
+	text-decoration: line-through;
+}
+
+.badge {
+	background: #e67e22;
+	color: white;
+	border-radius: 50%;
+	padding: 2px 6px;
+	margin-left: 5px;
+	font-size: 16px;
+}
+
+.badge.purchased {
+	text-decoration: line-through;
 }
