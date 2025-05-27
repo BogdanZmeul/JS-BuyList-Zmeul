@@ -1,13 +1,8 @@
-* {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
-	font-family: Arial, sans-serif;
-}
-
 body {
 	background: #f0f0f0;
-	padding: 20px;
+	padding: 12px;
+	margin: 0;
+	font-family: Arial, sans-serif;
 }
 
 .shopping-cart-container {
@@ -19,7 +14,6 @@ body {
 .products,
 .sidebar-statistics {
 	background: white;
-	padding: 20px;
 	border-radius: 5px;
 	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
@@ -32,21 +26,18 @@ body {
 	/* Розташовує дочірні елементи вертикально */
 	padding: 0;
 	/* Прибираємо внутрішні відступи з самого .left */
-	
-	/* Важливо для заокруглення ліній */
 }
 
 .product {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding: 10px 0;
-	gap: 10px;
+	padding: 3px 0;
 	/* Залишаємо gap для проміжків між основними блоками товару */
 }
 
 .products-section {
-	padding: 5px 10px;
+	padding: 0px 20px;
 	/* Вертикальний і горизонтальний відступи всередині кожної секції */
 	border-bottom: 1px solid #eee;
 	/* Створює лінію-роздільник */
@@ -60,10 +51,7 @@ body {
 .products-section:first-child {
 	flex-grow: 1;
 	/* Дозволяє цій секції займати доступний простір */
-	padding-top: 15px;
-	/* Збільшимо верхній padding */
-	padding-bottom: 15px;
-	/* Збільшимо нижній padding */
+	padding: 20px 20px;
 }
 
 .sidebar-statistics {
@@ -72,14 +60,10 @@ body {
 	/* Робить його flex-контейнером */
 	flex-direction: column;
 	/* Розташовує дочірні елементи вертикально */
-	padding: 0;
-	/* Прибираємо внутрішні відступи з самого .right */
-	overflow: hidden;
-	/* Важливо для заокруглення ліній */
 }
 
 .sidebar-statistics-section {
-	padding: 15px 20px;
+	padding: 5px 20px;
 	/* Вертикальний і горизонтальний відступи всередині кожної секції */
 	border-bottom: 1px solid #eee;
 	/* Створює лінію-роздільник */
@@ -97,24 +81,23 @@ body {
 }
 
 .add-product-input {
+	box-sizing: border-box;
 	flex: 1;
-	padding: 10px;
+	padding: 20px;
 	/* Збільшимо padding, щоб інпут був вищим */
-	height: 40px;
+	height: 50px;
 	/* Встановимо фіксовану висоту, щоб точно відповідати кнопці */
-	border-radius: 5px;
-	border-bottom-right-radius: 0%;
-	border-top-right-radius: 0%;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
 	border: 1px solid #ccc;
 	font-size: 16px;
 }
 
-.name,
-.name-input {
+.name {
 	flex-basis: 30%;
 	/* Надаємо їм базовий розмір */
 	min-width: 100px;
-	font-size: 16px;
+	font-size: 18px;
 	margin-right: -100px;
 	/* <-- ДОДАНО: Невеликий від'ємний правий марджін, щоб змістити наступний елемент ліворуч */
 }
@@ -130,6 +113,7 @@ body {
 	flex-basis: 20%;
 	margin-right: -23px;
 	min-width: 15px;
+	max-width: 150px;
 }
 
 .quantity {
@@ -144,7 +128,6 @@ body {
 
 .quantity.no-buttons {
 	margin-left: -40px;
-	/* Відключаємо від'ємний margin для випадку без кнопок */
 }
 
 .count {
@@ -159,6 +142,19 @@ body {
 	border-radius: 5px;
 	font-size: 16px;
 	background-color: #ccc;
+}
+
+.count-circle {
+	background: #e67e22;
+	color: white;
+	border-radius: 50%;
+	padding: 2px 6px;
+	margin-left: 5px;
+	font-size: 16px;
+}
+
+.count-circle.purchased {
+	text-decoration: line-through;
 }
 
 .action-buttons {
@@ -243,18 +239,13 @@ body {
 	border-top-right-radius: 5px;
 	/* Заокруглення лише справа зверху */
 	border-bottom-right-radius: 5px;
-	/* Заокруглення лише справа знизу */
-	border-top-left-radius: 0;
-	/* Без заокруглення зліва зверху */
-	border-bottom-left-radius: 0;
-	/* Без заокруглення зліва знизу */
-	width: 100px;
+	width: 160px;
 	/* Приблизна ширина, можливо, знадобиться налаштувати */
-	height: 40px;
+	height: 50px;
 	/* Встановимо висоту таку ж, як у input */
 	padding: 0 15px;
 	/* Відступи, можливо, краще відмовитися від padding-top/bottom */
-	font-size: 16px;
+	font-size: 20px;
 	/* Забезпечимо розмір шрифту */
 	font-weight: bold;
 	box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
@@ -317,18 +308,57 @@ body {
 	text-decoration: line-through;
 }
 
-.badge {
-	background: #e67e22;
+/* бейджик */
+
+.author-badge {
+	position: fixed;
+	bottom: 0;
+	left: 10px;
+	background-color: #6a0dad;
+	/* Темно-фіолетовий */
 	color: white;
-	border-radius: 50%;
-	padding: 2px 6px;
-	margin-left: 5px;
-	font-size: 16px;
+	padding: 0px 20px;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0;
+	max-height: 40px;
+	/* Початкова висота бейджика */
+	transition: max-height 2.4s ease, background-color 2.4s ease;
+	cursor: pointer;
+	overflow: hidden;
 }
 
-.badge.purchased {
-	text-decoration: line-through;
+.author-badge .author {
+	opacity: 0;
+	transition: opacity 2.4s ease;
+	font-size: 12px;
+	pointer-events: none;
 }
+
+.author-badge:hover {
+	max-height: 120px;
+	background-color: #361dc4;
+	/* Темно-синій при наведенні */
+}
+
+.author-badge:hover .author,
+.author-badge:hover .label-small {
+	opacity: 1;
+}
+
+.label-badge {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.label-small {
+	opacity: 0;
+	transition: opacity 2.4s ease;
+	margin-top: 10px;
+	font-size: 10px;
+}
+
 
 /* ----------------------------------------------------------------------- */
 /* Адаптивні стилі для маленьких екранів */
@@ -395,115 +425,63 @@ body {
 
 	/* Стилі для бейджика на маленьких екранах */
     .author-badge {
-        font-size: 12px !important; /* Зменшуємо загальний розмір шрифту */
-        padding: 8px 15px !important; /* Зменшуємо відступи */
-        max-height: 30px !important; /* Зменшуємо початкову висоту */
-        left: 5px !important; /* Трохи зміщуємо ліворуч, щоб не прилипав до краю */
+        font-size: 12px; /* Зменшуємо загальний розмір шрифту */
+        padding: 8px 15px; /* Зменшуємо відступи */
+        max-height: 30px; /* Зменшуємо початкову висоту */
+        left: 5px; /* Трохи зміщуємо ліворуч, щоб не прилипав до краю */
         /* Зменшуємо розмір шрифту всередині бейджика, якщо потрібно, щоб він був меншим */
     }
 
     .author-badge .label-badge {
-        font-size: 14px !important; /* Зменшуємо розмір шрифту "Buy List" */
+        font-size: 14px; /* Зменшуємо розмір шрифту "Buy List" */
     }
 
     .author-badge .label-small,
     .author-badge .author {
-        font-size: 10px !important; /* Зменшуємо розмір шрифту "Created by:" та імені */
+        font-size: 10px; /* Зменшуємо розмір шрифту "Created by:" та імені */
     }
 
     .author-badge:hover {
-        max-height: 80px !important; /* Зменшуємо висоту при наведенні для маленьких екранів */
+        max-height: 80px; /* Зменшуємо висоту при наведенні для маленьких екранів */
     }
-}
-
-
-/* бейджик */
-
-.author-badge {
-	position: fixed;
-	bottom: 0;
-	left: 10px;
-	background-color: #6a0dad;
-	/* Темно-фіолетовий */
-	color: white;
-	padding: 10px 20px;
-	border-top-right-radius: 10px;
-	border-top-left-radius: 10px;
-	border-bottom-right-radius: 0;
-	border-bottom-left-radius: 0;
-	max-height: 40px;
-	/* Початкова висота бейджика */
-	transition: max-height 2.4s ease, background-color 2.4s ease;
-	cursor: pointer;
-	overflow: hidden;
-}
-
-.author-badge .author {
-	opacity: 0;
-	transition: opacity 2.4s ease;
-	font-size: 12px;
-	pointer-events: none;
-}
-
-.author-badge:hover {
-	max-height: 120px;
-	background-color: #361dc4;
-	/* Темно-синій при наведенні */
-}
-
-.author-badge:hover .author,
-.author-badge:hover .label-small {
-	opacity: 1;
-}
-
-.label-badge {
-	font-size: 16px;
-	font-weight: bold;
-}
-
-.label-small {
-	opacity: 0;
-	transition: opacity 2.4s ease;
-	margin-top: 10px;
-	font-size: 10px;
 }
 
 /* Стилі для друку */
 @media print {
     .author-badge {
-        background-color: white !important; /* Фон білий */
-        color: black !important; /* Текст чорний */
-        border: 1px solid black !important; /* Чорна обводка */
-        position: fixed !important; /* Зберігаємо фіксовану позицію */
-        bottom: 0 !important; /* Зберігаємо bottom */
-        left: 10px !important; /* Зберігаємо left */
-        max-height: unset !important; /* Дозволяємо відобразити весь вміст */
+        background-color: white; /* Фон білий */
+        color: black; /* Текст чорний */
+        border: 1px solid black; /* Чорна обводка */
+        position: fixed; /* Зберігаємо фіксовану позицію */
+        bottom: 0; /* Зберігаємо bottom */
+        left: 10px; /* Зберігаємо left */
+        max-height: unset; /* Дозволяємо відобразити весь вміст */
         width: fit-content; /* Ширина по вмісту */
-        padding: 10px 20px !important; /* Зберігаємо початкові відступи або коригуємо за потреби */
-        border-top-right-radius: 10px !important;
-        border-top-left-radius: 10px !important;
-        border-bottom-right-radius: 0 !important;
-        border-bottom-left-radius: 0 !important;
-        transition: none !important; /* Вимикаємо анімації при друці */
-        overflow: visible !important; /* Дозволяємо відобразити весь вміст, навіть якщо він виходить за межі */
+        padding: 10px 20px; /* Зберігаємо початкові відступи або коригуємо за потреби */
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+        transition: none; /* Вимикаємо анімації при друці */
+        overflow: visible; /* Дозволяємо відобразити весь вміст, навіть якщо він виходить за межі */
     }
 
     .author-badge .label-badge {
-        display: none !important; /* Ховаємо "Buy List" */
+        display: none; /* Ховаємо "Buy List" */
     }
 
     .author-badge .label-small {
-        opacity: 1 !important; /* "Created by:" робимо видимим */
-        color: black !important; /* "Created by:" чорним кольором */
-        font-size: 12px !important; /* Зберігаємо або коригуємо розмір шрифту "Created by:" */
-        margin-top: 0 !important; /* Прибираємо верхній відступ, якщо потрібно */
+        opacity: 1; /* "Created by:" робимо видимим */
+        color: black; /* "Created by:" чорним кольором */
+        font-size: 12px; /* Зберігаємо або коригуємо розмір шрифту "Created by:" */
+        margin-top: 0; /* Прибираємо верхній відступ, якщо потрібно */
     }
 
     .author-badge .author {
-        opacity: 1 !important; /* Ім'я робимо видимим */
-        color: black !important; /* Ім'я чорним кольором */
-        font-size: 16px !important; /* Збільшуємо розмір шрифту імені, щоб відповідало фото */
-        font-weight: bold !important; /* Робимо ім'я жирним */
-        pointer-events: auto !important;
+        opacity: 1; /* Ім'я робимо видимим */
+        color: black; /* Ім'я чорним кольором */
+        font-size: 16px; /* Збільшуємо розмір шрифту імені, щоб відповідало фото */
+        font-weight: bold; /* Робимо ім'я жирним */
+        pointer-events: auto;
     }
 }
