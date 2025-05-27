@@ -5,7 +5,8 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="author" content="Zmeul Bogdan" />
-	<meta name="description" content="Кошик покупок з можливістю додавання товарів, зміни кількості та позначення як куплених." />
+	<meta name="description"
+		content="Кошик покупок з можливістю додавання товарів, зміни кількості та позначення як куплених." />
 	<meta name="keywords" content="кошик, покупки, додати товар, кількість, куплено" />
 	<title>Кошик покупок</title>
 	<link rel="stylesheet" href="main.css" />
@@ -19,7 +20,8 @@
 			<section class="products-section">
 				<form class="add-product-form">
 					<input class="add-product-input" type="text" placeholder="Назва товару" />
-					<button type="button" class="btn add-product">Додати</button>
+						<button type="button" class="btn add-product tooltip"
+							data-tooltip="Додати новий продукт">Додати</button>
 				</form>
 			</section>
 			<section class="products-section">
@@ -29,7 +31,7 @@
 						<p class="count">2</p>
 					</div>
 					<div class="action-buttons">
-						<button class="btn purchase">Не куплено</button>
+							<button class="btn purchase tooltip" data-tooltip="Додати новий продукт">Не куплено</button>
 					</div>
 				</div>
 			</section>
@@ -84,6 +86,12 @@
 		</aside>
 
 	</main>
+
+	<div class="author-badge">
+		<p class="label-badge">Buy List</p>
+		<p class="label-small">Created by:</p>
+		<p class="author">Zmeul Bogdan</p>
+	</div>
 
 </body>
 

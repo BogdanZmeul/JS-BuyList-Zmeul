@@ -26,10 +26,14 @@ body {
 
 .products {
 	flex: 2;
-    display: flex; /* Робить його flex-контейнером */
-    flex-direction: column; /* Розташовує дочірні елементи вертикально */
-    padding: 0; /* Прибираємо внутрішні відступи з самого .left */
-    overflow: hidden; /* Важливо для заокруглення ліній */
+	display: flex;
+	/* Робить його flex-контейнером */
+	flex-direction: column;
+	/* Розташовує дочірні елементи вертикально */
+	padding: 0;
+	/* Прибираємо внутрішні відступи з самого .left */
+	
+	/* Важливо для заокруглення ліній */
 }
 
 .product {
@@ -42,52 +46,67 @@ body {
 }
 
 .products-section {
-    padding: 5px 10px; /* Вертикальний і горизонтальний відступи всередині кожної секції */
-    border-bottom: 1px solid #eee; /* Створює лінію-роздільник */
+	padding: 5px 10px;
+	/* Вертикальний і горизонтальний відступи всередині кожної секції */
+	border-bottom: 1px solid #eee;
+	/* Створює лінію-роздільник */
 }
 
 .products-section:last-child {
-    border-bottom: none; /* Прибирає нижню лінію в останній секції */
+	border-bottom: none;
+	/* Прибирає нижню лінію в останній секції */
 }
 
 .products-section:first-child {
-    flex-grow: 1; /* Дозволяє цій секції займати доступний простір */
-    padding-top: 15px; /* Збільшимо верхній padding */
-    padding-bottom: 15px; /* Збільшимо нижній padding */
+	flex-grow: 1;
+	/* Дозволяє цій секції займати доступний простір */
+	padding-top: 15px;
+	/* Збільшимо верхній padding */
+	padding-bottom: 15px;
+	/* Збільшимо нижній padding */
 }
 
 .sidebar-statistics {
 	flex: 1;
-    display: flex; /* Робить його flex-контейнером */
-    flex-direction: column; /* Розташовує дочірні елементи вертикально */
-    padding: 0; /* Прибираємо внутрішні відступи з самого .right */
-    overflow: hidden; /* Важливо для заокруглення ліній */
+	display: flex;
+	/* Робить його flex-контейнером */
+	flex-direction: column;
+	/* Розташовує дочірні елементи вертикально */
+	padding: 0;
+	/* Прибираємо внутрішні відступи з самого .right */
+	overflow: hidden;
+	/* Важливо для заокруглення ліній */
 }
 
 .sidebar-statistics-section {
-    padding: 15px 20px; /* Вертикальний і горизонтальний відступи всередині кожної секції */
-    border-bottom: 1px solid #eee; /* Створює лінію-роздільник */
+	padding: 15px 20px;
+	/* Вертикальний і горизонтальний відступи всередині кожної секції */
+	border-bottom: 1px solid #eee;
+	/* Створює лінію-роздільник */
 }
 
 .sidebar-statistics-section:last-child {
-    border-bottom: none; /* Прибирає нижню лінію в останній секції */
+	border-bottom: none;
+	/* Прибирає нижню лінію в останній секції */
 }
 
-.add-product-form{
+.add-product-form {
 	display: flex;
-    justify-content: center;
-    align-items: center;
+	justify-content: center;
+	align-items: center;
 }
 
-.add-product-input{
+.add-product-input {
 	flex: 1;
-    padding: 10px; /* Збільшимо padding, щоб інпут був вищим */
-    height: 40px; /* Встановимо фіксовану висоту, щоб точно відповідати кнопці */
-    border-radius: 5px;
+	padding: 10px;
+	/* Збільшимо padding, щоб інпут був вищим */
+	height: 40px;
+	/* Встановимо фіксовану висоту, щоб точно відповідати кнопці */
+	border-radius: 5px;
 	border-bottom-right-radius: 0%;
 	border-top-right-radius: 0%;
-    border: 1px solid #ccc;
-    font-size: 16px;
+	border: 1px solid #ccc;
+	font-size: 16px;
 }
 
 .name,
@@ -131,9 +150,12 @@ body {
 .count {
 	width: 30px;
 	height: 30px;
-	display: flex;          /* <-- ДОДАНО: Робить його flex-контейнером */
-    justify-content: center; /* <-- ДОДАНО: Центрує вміст горизонтально */
-    align-items: center;    /* <-- ДОДАНО: Центрує вміст вертикально */
+	display: flex;
+	/* <-- ДОДАНО: Робить його flex-контейнером */
+	justify-content: center;
+	/* <-- ДОДАНО: Центрує вміст горизонтально */
+	align-items: center;
+	/* <-- ДОДАНО: Центрує вміст вертикально */
 	border-radius: 5px;
 	font-size: 16px;
 	background-color: #ccc;
@@ -161,6 +183,7 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	position: relative;
 }
 
 .btn.round {
@@ -194,46 +217,93 @@ body {
 }
 
 .btn.purchase {
-	background-color: #f0f0f0; /* Дуже світло-сірий, як на фото */
-    color: black;              /* Текст чорний */
-    border-radius: 5px;
-    width: 120px; /* Ширина кнопки */
-	height: 35px; /* Висота кнопки */
-    padding: 5px 10px;
+	background-color: #f0f0f0;
+	/* Дуже світло-сірий, як на фото */
+	color: black;
+	/* Текст чорний */
+	border-radius: 5px;
+	width: 120px;
+	/* Ширина кнопки */
+	height: 35px;
+	/* Висота кнопки */
+	padding: 5px 10px;
 	font-size: 14px;
-    border: 1px solid #ccc;  /* Легка сіра обводка, як на фото */
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Легка тінь для об'єму */
-    /* text-shadow: none; */  /* Забезпечуємо відсутність тіні від тексту */
+	border: 1px solid #ccc;
+	/* Легка сіра обводка, як на фото */
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+	/* Легка тінь для об'єму */
+	/* text-shadow: none; */
+	/* Забезпечуємо відсутність тіні від тексту */
 }
 
 .btn.add-product {
 	background: #3498db;
-    color: white;
-    /* border-radius: 5px;  <-- Видалимо, щоб налаштувати окремо для прикріплення */
-    border-top-right-radius: 5px;   /* Заокруглення лише справа зверху */
-    border-bottom-right-radius: 5px; /* Заокруглення лише справа знизу */
-    border-top-left-radius: 0;     /* Без заокруглення зліва зверху */
-    border-bottom-left-radius: 0;  /* Без заокруглення зліва знизу */
-    width: 100px; /* Приблизна ширина, можливо, знадобиться налаштувати */
-    height: 40px; /* Встановимо висоту таку ж, як у input */
-    padding: 0 15px; /* Відступи, можливо, краще відмовитися від padding-top/bottom */
-    font-size: 16px; /* Забезпечимо розмір шрифту */
+	color: white;
+	/* border-radius: 5px;  <-- Видалимо, щоб налаштувати окремо для прикріплення */
+	border-top-right-radius: 5px;
+	/* Заокруглення лише справа зверху */
+	border-bottom-right-radius: 5px;
+	/* Заокруглення лише справа знизу */
+	border-top-left-radius: 0;
+	/* Без заокруглення зліва зверху */
+	border-bottom-left-radius: 0;
+	/* Без заокруглення зліва знизу */
+	width: 100px;
+	/* Приблизна ширина, можливо, знадобиться налаштувати */
+	height: 40px;
+	/* Встановимо висоту таку ж, як у input */
+	padding: 0 15px;
+	/* Відступи, можливо, краще відмовитися від padding-top/bottom */
+	font-size: 16px;
+	/* Забезпечимо розмір шрифту */
 	font-weight: bold;
-	box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Додамо легку тінь для об'єму */
+	box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+	/* Додамо легку тінь для об'єму */
+}
+
+/* Сам тултіп буде псевдоелементом ::after кнопки */
+.btn.tooltip::after {
+    content: attr(data-tooltip); /* Бере текст з data-tooltip атрибуту самої кнопки */
+    visibility: hidden; /* Приховано за замовчуванням */
+    opacity: 0; /* Для плавного зникнення */
+    transform: translateY(10px) scale(0.9); /* Початкове положення для анімації */
+    transition: opacity 1.3s ease, transform 1.3s ease, visibility 1.3s ease; /* Плавна анімація */
+
+    background-color: #6a0dad; /* Фіолетовий фон */
+    color: #fff; /* Білий текст */
+    text-align: center;
+    border-radius: 8px; /* Округлі кути */
+    padding: 8px 12px;
+    position: absolute;
+    z-index: 1000; /* Щоб був над іншими елементами, високий z-index */
+    bottom: calc(100% + 5px); /* Розташовуємо над кнопкою + відступ */
+    white-space: nowrap; /* Щоб текст не переносився на новий рядок */
+    font-size: 14px;
+}
+
+/* Відображення підказки та стрілки при наведенні на кнопку */
+.btn.tooltip:hover::after,
+.btn.tooltip:hover::before {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0) scale(1); /* Плавне збільшення і підйом */
 }
 
 .remaining,
 .bought {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
 }
 
 .tag {
 	display: inline-flex;
-	 display: flex;          /* <-- ДОДАНО: Робить його flex-контейнером */
-    justify-content: center; /* <-- ДОДАНО: Центрує вміст горизонтально */
-    align-items: center;    /* <-- ДОДАНО: Центрує вміст вертикально */
+	display: flex;
+	/* <-- ДОДАНО: Робить його flex-контейнером */
+	justify-content: center;
+	/* <-- ДОДАНО: Центрує вміст горизонтально */
+	align-items: center;
+	/* <-- ДОДАНО: Центрує вміст вертикально */
 	color: black;
 	border-radius: 5px;
 	padding: 5px 10px;
@@ -258,4 +328,182 @@ body {
 
 .badge.purchased {
 	text-decoration: line-through;
+}
+
+/* ----------------------------------------------------------------------- */
+/* Адаптивні стилі для маленьких екранів */
+/* ----------------------------------------------------------------------- */
+
+@media (max-width: 700px) {
+    .shopping-cart-container {
+        flex-direction: column; /* Колонки одна під одною */
+        align-items: stretch; /* Розтягуємо елементи на всю ширину контейнера */
+    }
+
+    .products,
+    .sidebar-statistics {
+        flex: none; /* Забираємо flex grow/shrink, щоб вони займали всю ширину */
+        width: 100%; /* Займають всю ширину */
+    }
+
+    /* Можливо, потрібно буде скоригувати відступи та розміри елементів всередині колонок */
+    .product {
+        flex-direction: column; /* Елементи товару також стають стовпчиком */
+        align-items: flex-start; /* Вирівнюємо елементи ліворуч */
+        padding: 10px; /* Додаємо внутрішній padding */
+        gap: 5px; /* Зменшуємо gap */
+    }
+
+    .name,
+    .name-input,
+    .quantity,
+    .action-buttons {
+        width: 100%; /* Займають всю ширину рядка */
+        margin-right: 0; /* Прибираємо від'ємні марджини */
+        min-width: unset; /* Скидаємо мінімальну ширину */
+        justify-content: flex-start; /* Вирівнюємо ліворуч */
+    }
+
+    .quantity.no-buttons {
+        margin-left: 0; /* Прибираємо від'ємний марджін */
+    }
+
+    .action-buttons {
+        justify-content: flex-start; /* Вирівнюємо кнопки ліворуч */
+    }
+
+    .add-product-form {
+        flex-direction: column; /* Форма додавання продукту також стає стовпчиком */
+        align-items: stretch;
+    }
+
+    .add-product-input {
+        width: 100%; /* Займає всю ширину */
+        margin-bottom: 10px; /* Додаємо відступ знизу */
+        border-radius: 5px; /* Заокруглюємо всі кути */
+    }
+
+    .btn.add-product {
+        width: 100%; /* Кнопка "Додати" займає всю ширину */
+        border-radius: 5px; /* Заокруглюємо всі кути */
+    }
+
+    .tag {
+        width: auto; /* Дозволяємо тегам займати стільки місця, скільки потрібно */
+        flex-shrink: 1; /* Дозволяємо тегам стискатися */
+    }
+
+	/* Стилі для бейджика на маленьких екранах */
+    .author-badge {
+        font-size: 12px !important; /* Зменшуємо загальний розмір шрифту */
+        padding: 8px 15px !important; /* Зменшуємо відступи */
+        max-height: 30px !important; /* Зменшуємо початкову висоту */
+        left: 5px !important; /* Трохи зміщуємо ліворуч, щоб не прилипав до краю */
+        /* Зменшуємо розмір шрифту всередині бейджика, якщо потрібно, щоб він був меншим */
+    }
+
+    .author-badge .label-badge {
+        font-size: 14px !important; /* Зменшуємо розмір шрифту "Buy List" */
+    }
+
+    .author-badge .label-small,
+    .author-badge .author {
+        font-size: 10px !important; /* Зменшуємо розмір шрифту "Created by:" та імені */
+    }
+
+    .author-badge:hover {
+        max-height: 80px !important; /* Зменшуємо висоту при наведенні для маленьких екранів */
+    }
+}
+
+
+/* бейджик */
+
+.author-badge {
+	position: fixed;
+	bottom: 0;
+	left: 10px;
+	background-color: #6a0dad;
+	/* Темно-фіолетовий */
+	color: white;
+	padding: 10px 20px;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0;
+	max-height: 40px;
+	/* Початкова висота бейджика */
+	transition: max-height 2.4s ease, background-color 2.4s ease;
+	cursor: pointer;
+	overflow: hidden;
+}
+
+.author-badge .author {
+	opacity: 0;
+	transition: opacity 2.4s ease;
+	font-size: 12px;
+	pointer-events: none;
+}
+
+.author-badge:hover {
+	max-height: 120px;
+	background-color: #361dc4;
+	/* Темно-синій при наведенні */
+}
+
+.author-badge:hover .author,
+.author-badge:hover .label-small {
+	opacity: 1;
+}
+
+.label-badge {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.label-small {
+	opacity: 0;
+	transition: opacity 2.4s ease;
+	margin-top: 10px;
+	font-size: 10px;
+}
+
+/* Стилі для друку */
+@media print {
+    .author-badge {
+        background-color: white !important; /* Фон білий */
+        color: black !important; /* Текст чорний */
+        border: 1px solid black !important; /* Чорна обводка */
+        position: fixed !important; /* Зберігаємо фіксовану позицію */
+        bottom: 0 !important; /* Зберігаємо bottom */
+        left: 10px !important; /* Зберігаємо left */
+        max-height: unset !important; /* Дозволяємо відобразити весь вміст */
+        width: fit-content; /* Ширина по вмісту */
+        padding: 10px 20px !important; /* Зберігаємо початкові відступи або коригуємо за потреби */
+        border-top-right-radius: 10px !important;
+        border-top-left-radius: 10px !important;
+        border-bottom-right-radius: 0 !important;
+        border-bottom-left-radius: 0 !important;
+        transition: none !important; /* Вимикаємо анімації при друці */
+        overflow: visible !important; /* Дозволяємо відобразити весь вміст, навіть якщо він виходить за межі */
+    }
+
+    .author-badge .label-badge {
+        display: none !important; /* Ховаємо "Buy List" */
+    }
+
+    .author-badge .label-small {
+        opacity: 1 !important; /* "Created by:" робимо видимим */
+        color: black !important; /* "Created by:" чорним кольором */
+        font-size: 12px !important; /* Зберігаємо або коригуємо розмір шрифту "Created by:" */
+        margin-top: 0 !important; /* Прибираємо верхній відступ, якщо потрібно */
+    }
+
+    .author-badge .author {
+        opacity: 1 !important; /* Ім'я робимо видимим */
+        color: black !important; /* Ім'я чорним кольором */
+        font-size: 16px !important; /* Збільшуємо розмір шрифту імені, щоб відповідало фото */
+        font-weight: bold !important; /* Робимо ім'я жирним */
+        pointer-events: auto !important;
+    }
 }
