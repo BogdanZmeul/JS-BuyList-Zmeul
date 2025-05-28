@@ -20,8 +20,8 @@
 			<section class="products-section">
 				<form class="add-product-form">
 					<input class="add-product-input" type="text" placeholder="Назва товару" />
-						<button type="button" class="btn add-product tooltip"
-							data-tooltip="Додати новий продукт">Додати</button>
+					<button type="button" class="btn add-product tooltip"
+						data-tooltip="Додати новий товар">Додати</button>
 				</form>
 			</section>
 			<section class="products-section">
@@ -31,7 +31,7 @@
 						<p class="count">2</p>
 					</div>
 					<div class="action-buttons">
-							<button class="btn purchase tooltip" data-tooltip="Додати новий продукт">Не куплено</button>
+						<button class="btn purchase tooltip" data-tooltip="Товар не куплено">Не куплено</button>
 					</div>
 				</div>
 			</section>
@@ -39,27 +39,27 @@
 				<div class="product">
 					<p class="name">Печиво</p>
 					<div class="quantity">
-						<button class="btn red round">−</button>
+						<button class="btn red round tooltip" data-tooltip="Прибрати 1 шт">−</button>
 						<p class="count">2</p>
-						<button class="btn green round">+</button>
+						<button class="btn green round tooltip" data-tooltip="Додати 1 шт">+</button>
 					</div>
 					<div class="action-buttons">
-						<button class="btn purchase">Куплено</button>
-						<button class="btn red cross">×</button>
+						<button class="btn purchase tooltip" data-tooltip="Товар куплено">Куплено</button>
+						<button class="btn red cross tooltip" data-tooltip="Видалити товар">×</button>
 					</div>
 				</div>
 			</section>
 			<div class="products-section">
 				<div class="product">
-					<input type="text" class="name-input" value="Сир" />
+					<p class="name">Сир</p>
 					<div class="quantity">
-						<button class="btn red round disabled">−</button>
+						<button class="btn red round disabled tooltip" data-tooltip="Прибрати 1 шт">−</button>
 						<p class="count">1</p>
-						<button class="btn green round">+</button>
+						<button class="btn green round tooltip" data-tooltip="Додати 1 шт">+</button>
 					</div>
 					<div class="action-buttons">
-						<button class="btn purchase">Куплено</button>
-						<button class="btn red cross">×</button>
+						<button class="btn purchase tooltip" data-tooltip="Товар куплено">Куплено</button>
+						<button class="btn red cross tooltip" data-tooltip="Видалити товар">×</button>
 					</div>
 				</div>
 			</div>
