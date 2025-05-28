@@ -16,7 +16,7 @@
 
 	<main class="shopping-cart-container">
 
-		<section class="products">
+		<article class="products">
 			<section class="products-section">
 				<form class="add-product-form">
 					<input class="add-product-input" type="text" placeholder="Назва товару" />
@@ -25,7 +25,7 @@
 				</form>
 			</section>
 			<section class="products-section">
-				<div class="product">
+				<section class="product">
 					<p class="name purchased">Помідори</p>
 					<div class="quantity no-buttons">
 						<p class="count">2</p>
@@ -33,10 +33,10 @@
 					<div class="action-buttons">
 						<button class="btn purchase tooltip" data-tooltip="Товар не куплено">Не куплено</button>
 					</div>
-				</div>
+				</section>
 			</section>
 			<section class="products-section">
-				<div class="product">
+				<section class="product">
 					<p class="name">Печиво</p>
 					<div class="quantity">
 						<button class="btn red round tooltip" data-tooltip="Прибрати 1 шт">−</button>
@@ -47,11 +47,11 @@
 						<button class="btn purchase tooltip" data-tooltip="Товар куплено">Куплено</button>
 						<button class="btn red cross tooltip" data-tooltip="Видалити товар">×</button>
 					</div>
-				</div>
+				</section>
 			</section>
 			<div class="products-section">
-				<div class="product">
-					<p class="name">Сир</p>
+				<section class="product">
+					<input class="name-input" value="Сир" />
 					<div class="quantity">
 						<button class="btn red round disabled tooltip" data-tooltip="Прибрати 1 шт">−</button>
 						<p class="count">1</p>
@@ -61,37 +61,37 @@
 						<button class="btn purchase tooltip" data-tooltip="Товар куплено">Куплено</button>
 						<button class="btn red cross tooltip" data-tooltip="Видалити товар">×</button>
 					</div>
-				</div>
+				</section>
 			</div>
-		</section>
+		</article>
 
 		<aside class="sidebar-statistics">
 			<section class="sidebar-statistics-section">
 				<h2>Залишилося</h2>
 			</section>
 			<section class="sidebar-statistics-section">
-				<div class="remaining">
-					<span class="tag light-gray">Печиво <span class="count-circle">2</span></span>
-					<span class="tag light-gray">Сир <span class="count-circle">1</span></span>
-				</div>
+				<ul class="remaining">
+					<li class="tag light-gray">Печиво <span class="count-circle">2</span></li>
+					<li class="tag light-gray">Сир <span class="count-circle">1</span></li>
+				</ul>
 			</section>
 			<section class="sidebar-statistics-section">
 				<h2>Куплено</h2>
 			</section>
 			<section class="sidebar-statistics-section">
-				<div class="bought">
-					<span class="tag light-gray purchased">Помідори <span class="count-circle purchased">2</span></span>
-				</div>
+				<ul class="bought">
+					<li class="tag light-gray purchased">Помідори <span class="count-circle purchased">2</span></li>
+				</ul>
 			</section>
 		</aside>
 
 	</main>
 
-	<div class="author-badge">
+	<mark class="author-badge">
 		<p class="label-badge">Buy List</p>
 		<p class="label-small">Created by:</p>
 		<p class="author">Zmeul Bogdan</p>
-	</div>
+	</mark>
 
 </body>
 

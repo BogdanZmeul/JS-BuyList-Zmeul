@@ -59,6 +59,12 @@ body {
 	padding: 20px 20px;
 }
 
+ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
 .sidebar-statistics {
 	flex: 1;
 	display: flex;
@@ -92,7 +98,14 @@ body {
 	font-size: 16px;
 }
 
-.name {
+.add-product-input:focus {
+	outline: none;
+	border-color: var(--blue-color);
+	box-shadow: 0 0 0 1px rgba(52, 152, 219, 0.4);
+}
+
+.name,
+.name-input {
 	flex-basis: 30%;
 	min-width: 100px;
 	font-size: 18px;
@@ -103,13 +116,16 @@ body {
 }
 
 .name-input {
-	padding: 5px;
 	border: 1px solid var(--division-line-color);
 	border-radius: 5px;
-	flex-basis: 30%;
-	min-width: 15px;
-	max-width: 150px;
-	margin-right: 80px;
+	padding: 5px 0px 5px 5px;
+	flex-basis: 29.5%;
+}
+
+.name-input:focus {
+	outline: none;
+	border-color: var(--blue-color);
+	box-shadow: 0 0 0 1px rgba(52, 152, 219, 0.4);
 }
 
 .quantity {
@@ -169,6 +185,7 @@ body {
 	justify-content: center;
 	align-items: center;
 	position: relative;
+	box-shadow: 0 -1.5px 0 2px rgba(0, 0, 0, 0.2) inset;
 }
 
 .btn.round {
@@ -186,8 +203,6 @@ body {
 .btn.cross {
 	border-radius: 5px;
 	color: white;
-	width: 30px;
-	height: 30px;
 	font-size: 16px;
 	font-weight: bold;
 	width: 35px;
@@ -211,7 +226,6 @@ body {
 	padding: 5px 10px;
 	font-size: 14px;
 	border: 1px solid var(--purchase-btn-color);
-	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .btn.add-product {
@@ -224,14 +238,13 @@ body {
 	padding: 0 15px;
 	font-size: 20px;
 	font-weight: bold;
-	box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .btn.tooltip::after {
 	content: attr(data-tooltip);
 	visibility: hidden;
 	opacity: 0;
-	transform: translateY(10px) scale(0.9);
+	transform: translateY(10px) scale(1);
 	transition: opacity 1.3s ease, transform 1.3s ease, visibility 1.3s ease;
 
 	background-color: var(--info-color);
@@ -245,8 +258,7 @@ body {
 	font-size: 14px;
 }
 
-.btn.tooltip:hover::after,
-.btn.tooltip:hover::before {
+.btn.tooltip:hover::after {
 	visibility: visible;
 	opacity: 1;
 	transform: translateY(0) scale(1);
@@ -291,7 +303,6 @@ body {
 	border-top-left-radius: 10px;
 	max-height: 40px;
 	transition: max-height 2.4s ease, background-color 2.4s ease;
-	cursor: pointer;
 }
 
 .author-badge .author {
@@ -299,16 +310,6 @@ body {
 	transition: opacity 2.4s ease;
 	font-size: 12px;
 	margin-top: 0px;
-}
-
-.author-badge:hover {
-	max-height: 120px;
-	background-color: var(--focused-color);
-}
-
-.author-badge:hover .author,
-.author-badge:hover .label-small {
-	opacity: 1;
 }
 
 .author-badge .label-badge {
@@ -323,6 +324,16 @@ body {
 	margin-bottom: 0px;
 }
 
+.author-badge:hover {
+	max-height: 120px;
+	background-color: var(--focused-color);
+}
+
+.author-badge:hover .author,
+.author-badge:hover .label-small {
+	opacity: 1;
+}
+
 /* Стилі для маленьких екранів */
 
 /* 700px */
@@ -335,12 +346,6 @@ body {
 	.products,
 	.sidebar-statistics {
 		width: 100%;
-	}
-
-	.product {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
 	}
 
 	.action-buttons {
@@ -377,10 +382,15 @@ body {
 		padding: 5px 10px 10px 5px;
 	}
 
-	.name {
+	.name,
+	.name-input {
 		flex-basis: 20%;
 		font-size: 16px;
 		min-width: 50px;
+	}
+
+	.name-input {
+		flex-basis: 18.5%;
 	}
 
 	.btn.add-product {
@@ -393,7 +403,7 @@ body {
 	}
 
 	.quantity.no-buttons {
-		margin-right: 35px;
+		margin-right: 40px;
 	}
 
 	.count {
@@ -409,7 +419,7 @@ body {
 		white-space: nowrap;
 	}
 
-	.btn.cross{
+	.btn.cross {
 		width: 30px;
 		height: 30px;
 		font-size: 14px;
