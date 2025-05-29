@@ -300,7 +300,7 @@ ul {
 	padding: 0px 20px;
 	border-top-right-radius: 10px;
 	border-top-left-radius: 10px;
-	max-height: 40px;
+	max-height: 30px;
 	transition: max-height 2.4s ease, background-color 2.4s ease;
 }
 
@@ -314,6 +314,7 @@ ul {
 .author-badge .label-badge {
 	font-size: 16px;
 	font-weight: bold;
+	margin-top: 5px;
 }
 
 .author-badge .label-small {
