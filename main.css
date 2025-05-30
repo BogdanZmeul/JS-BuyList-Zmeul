@@ -183,8 +183,8 @@ body {
 }
 
 .btn:active {
-    box-shadow: 0 0.0625rem 0 0.0625rem rgba(0, 0, 0, 0.2) inset; 
-    transform: translateY(0.0625rem); 
+    box-shadow: 0 0.0625rem 0 0.0625rem rgba(0, 0, 0, 0.2) inset;
+    transform: translateY(0.0625rem);
 }
 
 .btn.round {
@@ -197,7 +197,7 @@ body {
 .btn.disabled {
     opacity: 0.5;
     cursor: not-allowed;
-    transform: none; 
+    transform: none;
 }
 
 .btn.cross {
@@ -339,9 +339,9 @@ body {
 
 /* Стилі для маленьких екранів */
 
-/* 700px */
+/* 880px */
 
-@media (max-width: 43.75rem) {
+@media (max-width: 55rem) {
     .shopping-cart-container {
         flex-direction: column;
     }
@@ -436,6 +436,19 @@ body {
         font-size: 0.875rem;
     }
 
+    .btn.tooltip::after {
+        font-size: 0.575rem;
+    }
+
+    .btn.cross.tooltip::after {
+        font-size: 0.575rem;
+        transform: translateX(-0.625rem) translateY(0.625rem) scale(1);
+    }
+
+    .btn.cross.tooltip:hover::after {
+        transform: translateX(-0.625rem) translateY(0) scale(1);
+    }
+
 }
 
 /* Стилі для друку */
@@ -450,7 +463,7 @@ body {
         left: 0.625rem;
         display: flex;
         flex-direction: column;
-        align-items: center;
+        justify-content: flex-start;
         padding: 0.625rem 1.25rem;
     }
 
