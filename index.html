@@ -10,6 +10,7 @@
 	<meta name="keywords" content="кошик, покупки, додати товар, кількість, куплено" />
 	<title>Кошик покупок</title>
 	<link rel="stylesheet" href="main.css" />
+	<script src="js/main.js" defer></script>
 </head>
 
 <body>
@@ -24,45 +25,6 @@
 						data-tooltip="Додати новий товар">Додати</button>
 				</form>
 			</section>
-			<section class="products-section">
-				<section class="product">
-					<p class="name purchased">Помідори</p>
-					<div class="quantity no-buttons">
-						<p class="count">2</p>
-					</div>
-					<div class="action-buttons">
-						<button class="btn purchase tooltip" data-tooltip="Товар не куплено">Не куплено</button>
-					</div>
-				</section>
-			</section>
-			<section class="products-section">
-				<section class="product">
-					<p class="name">Печиво</p>
-					<div class="quantity">
-						<button class="btn red round tooltip" data-tooltip="Прибрати 1 шт">−</button>
-						<p class="count">2</p>
-						<button class="btn green round tooltip" data-tooltip="Додати 1 шт">+</button>
-					</div>
-					<div class="action-buttons">
-						<button class="btn purchase tooltip" data-tooltip="Товар куплено">Куплено</button>
-						<button class="btn red cross tooltip" data-tooltip="Видалити товар">×</button>
-					</div>
-				</section>
-			</section>
-			<section class="products-section">
-				<section class="product">
-					<input class="name-input" value="Сир" />
-					<div class="quantity">
-						<button class="btn red round disabled tooltip" data-tooltip="Прибрати 1 шт">−</button>
-						<p class="count">1</p>
-						<button class="btn green round tooltip" data-tooltip="Додати 1 шт">+</button>
-					</div>
-					<div class="action-buttons">
-						<button class="btn purchase tooltip" data-tooltip="Товар куплено">Куплено</button>
-						<button class="btn red cross tooltip" data-tooltip="Видалити товар">×</button>
-					</div>
-				</section>
-			</section>
 		</article>
 
 		<aside class="sidebar-statistics">
@@ -71,8 +33,6 @@
 			</section>
 			<section class="sidebar-statistics-section">
 				<ul class="remaining">
-					<li class="tag light-gray">Печиво <span class="count-circle">2</span></li>
-					<li class="tag light-gray">Сир <span class="count-circle">1</span></li>
 				</ul>
 			</section>
 			<section class="sidebar-statistics-section">
@@ -80,7 +40,6 @@
 			</section>
 			<section class="sidebar-statistics-section">
 				<ul class="bought">
-					<li class="tag light-gray purchased">Помідори <span class="count-circle purchased">2</span></li>
 				</ul>
 			</section>
 		</aside>
