@@ -54,7 +54,7 @@ function createProductSection(product) {
     const actions = document.createElement("div");
     actions.className = "action-buttons";
 
-    const purchaseBtn = createButton(purchased ? "Зробити не купленим" : "Купити", "purchase", purchased ? "Товар куплено" : "Товар не куплено");
+    const purchaseBtn = createButton(purchased ? "Повернути" : "Купити", "purchase", purchased ? "Товар куплено" : "Товар не куплено");
 
     purchaseBtn.addEventListener("click", () => {
         purchased = !purchased;
@@ -80,7 +80,7 @@ function createProductSection(product) {
             createQuantityButtons(quantityDiv, countProduct, product);
         }
 
-        purchaseBtn.textContent = purchased ? "Зробити не купленим" : "Купити";
+        purchaseBtn.textContent = purchased ? "Повернути" : "Купити";
         purchaseBtn.setAttribute("data-tooltip", purchased ? "Товар куплено" : "Товар не куплено");
 
         removeFromSidebar(product.name);
@@ -114,17 +114,16 @@ function createAddProductSection(productList) {
 
 function addNewProduct(productList, input) {
     const newName = input.value.trim();
-    if (newName === ""){
+    if (newName === "") {
         alert("Назва товару не може бути порожньою!");
         input.focus();
-         return;
+        return;
     }
 
     const newProduct = { name: newName, count: 1, purchased: false };
 
     if (checkProductExists(newName)) {
         alert("Товар з такою назвою вже існує!");
-        input.value = "";
         input.focus();
         return;
     }
@@ -193,17 +192,18 @@ function updateNameProduct(nameProduct, product) {
 
     input.addEventListener("blur", () => {
         const newName = input.value.trim();
-        if (newName === "" || checkProductExists(newName)) {
+        if (newName == product.name) {
+            return;
+        } else if (newName === "" || checkProductExists(newName)) {
             alert("Назва не може бути порожньою або вже існує!");
-            input.value = product.name; 
+            input.value = product.name;
             input.focus();
             return;
         }
 
-        removeFromSidebar(product.name);
         nameProduct.textContent = newName;
+        updateSidebarProductName(product.name, newName);
         product.name = newName;
-        updateSidebar(product);
 
         input.replaceWith(nameProduct);
     });
@@ -212,9 +212,20 @@ function updateNameProduct(nameProduct, product) {
 function updateSidebar({ name, count, purchased }) {
     const remainingList = document.querySelector(".remaining");
     const boughtList = document.querySelector(".bought");
+
     const li = document.createElement("li");
     li.className = "tag" + (purchased ? " purchased" : "");
-    li.innerHTML = `${name} <span class="count-circle${purchased ? " purchased" : ""}">${count}</span>`;
+
+    const tagTextSpan = document.createElement("span");
+    tagTextSpan.className = "tag-text";
+    tagTextSpan.textContent = name;
+
+    const countSpan = document.createElement("span");
+    countSpan.className = "count-circle" + (purchased ? " purchased" : "");
+    countSpan.textContent = count;
+
+    li.appendChild(tagTextSpan);
+    li.appendChild(countSpan);
 
     if (purchased) {
         boughtList.appendChild(li);
@@ -242,6 +253,17 @@ function removeFromSidebar(name) {
         const tagName = tag.firstChild.textContent.trim().toLocaleLowerCase();
         if (tagName == name.trim().toLocaleLowerCase()) {
             tag.remove();
+        }
+    });
+}
+
+function updateSidebarProductName(oldName, newName) {
+    const allTags = document.querySelectorAll(".sidebar-statistics-section .tag");
+
+    allTags.forEach(tag => {
+        const tagName = tag.firstChild.textContent.trim().toLocaleLowerCase();
+        if (tagName == oldName.trim().toLocaleLowerCase()) {
+            tag.firstChild.textContent = newName;
         }
     });
 }

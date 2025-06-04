@@ -101,8 +101,11 @@ body {
 .name,
 .name-input {
     flex-basis: 30%;
-    min-width: 6.25rem;
+    max-width: 15rem;
     font-size: 1.1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .name.purchased {
@@ -279,12 +282,19 @@ body {
     align-items: center;
     color: black;
     border-radius: 0.3rem;
-    padding: 0.3rem 0.6rem;
+    padding: 0.5rem 0.6rem;
     margin: 0.9rem 0;
     font-size: 0.8rem;
-    width: 5rem;
-    height: 1.8rem;
     background: var(--tag-background-color);
+    max-width: 8rem;
+}
+
+.tag-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-grow: 1;
+    min-width: 0;
 }
 
 .tag.purchased {
@@ -420,7 +430,7 @@ body {
         width: 5rem;
         height: 1.8rem;
         font-size: 0.75rem;
-        white-space: nowrap;
+        white-space: wrap;
     }
 
     .btn.cross {
