@@ -1,22 +1,54 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const initialProducts = [
-        { name: "Помідори", count: 2, purchased: true },
-        { name: "Печиво", count: 2, purchased: false },
-        { name: "Сир", count: 1, purchased: false }
-    ];
+let productsData = [];
 
+const STORAGE_KEY = "shoppingCartProducts";
+
+document.addEventListener("DOMContentLoaded", () => {
     const productList = document.querySelector(".products");
 
     createAddProductSection(productList);
 
-    // Створення товарів
-    initialProducts.forEach(product => {
+    productsData = loadProducts();
+
+    if (!productsData || productsData.length === 0) {
+        productsData = [
+            { name: "Помідори", count: 2, purchased: true },
+            { name: "Печиво", count: 2, purchased: false },
+            { name: "Сир", count: 1, purchased: false }
+        ];
+        saveProducts();
+    }
+
+    productsData.forEach(product => {
         const productSection = createProductSection(product);
         productList.appendChild(productSection);
 
         updateSidebar(product);
     });
 });
+
+function saveProducts() {
+    try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(productsData));
+    } catch (e) {
+        console.error("Помилка збереження в localStorage:", e);
+    }
+}
+
+function loadProducts() {
+    try {
+        const storedProducts = localStorage.getItem(STORAGE_KEY);
+
+        return storedProducts ? JSON.parse(storedProducts) : [];
+    } catch (e) {
+        console.error("Помилка завантаження з localStorage:", e);
+        return [];
+    }
+}
+
+function deleteProduct(productToDelete) {
+    productsData = productsData.filter(product => product !== productToDelete);
+    saveProducts(); 
+}
 
 function createProductSection(product) {
     let { name, count, purchased } = product;
@@ -59,6 +91,7 @@ function createProductSection(product) {
     purchaseBtn.addEventListener("click", () => {
         purchased = !purchased;
         product.purchased = !product.purchased;
+        saveProducts();
 
         nameProduct.classList.toggle("purchased", purchased);
         countProduct.classList.toggle("purchased", purchased);
@@ -132,6 +165,7 @@ function addNewProduct(productList, input) {
     productList.appendChild(newProductSection);
 
     updateSidebar(newProduct);
+    saveProducts();
 
     input.value = "";
     input.focus();
@@ -163,6 +197,7 @@ function createQuantityButtons(quantityDiv, countProduct, product) {
         countProduct.textContent = product.count;
         minusBtn.classList.toggle("disabled", product.count == 1);
         updateSidebarCount(product.name, product.count);
+        saveProducts();
     });
     quantityDiv.appendChild(plusBtn);
 }
@@ -173,6 +208,7 @@ function createRemoveButton(actions, product, section) {
     removeBtn.addEventListener("click", () => {
         section.remove();
         removeFromSidebar(product.name);
+        deleteProduct(product);
     });
 
     actions.appendChild(removeBtn);
@@ -204,6 +240,7 @@ function updateNameProduct(nameProduct, product) {
         nameProduct.textContent = newName;
         updateSidebarProductName(product.name, newName);
         product.name = newName;
+        saveProducts();
 
         input.replaceWith(nameProduct);
     });
