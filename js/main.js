@@ -45,9 +45,14 @@ function loadProducts() {
     }
 }
 
+function addProduct(product) {
+    productsData.push(product);
+    saveProducts();
+}
+
 function deleteProduct(productToDelete) {
     productsData = productsData.filter(product => product !== productToDelete);
-    saveProducts(); 
+    saveProducts();
 }
 
 function createProductSection(product) {
@@ -165,7 +170,7 @@ function addNewProduct(productList, input) {
     productList.appendChild(newProductSection);
 
     updateSidebar(newProduct);
-    saveProducts();
+    addProduct(newProduct)
 
     input.value = "";
     input.focus();
@@ -188,6 +193,7 @@ function createQuantityButtons(quantityDiv, countProduct, product) {
         }
         minusBtn.classList.toggle("disabled", product.count == 1);
         updateSidebarCount(product.name, product.count);
+        saveProducts();
     });
     quantityDiv.insertBefore(minusBtn, countProduct);
 
