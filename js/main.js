@@ -11,9 +11,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!productsData || productsData.length === 0) {
         productsData = [
-            { name: "Помідори", count: 2, purchased: true },
-            { name: "Печиво", count: 2, purchased: false },
-            { name: "Сир", count: 1, purchased: false }
+            { id: 1, name: "Помідори", count: 2, purchased: true },
+            { id: 2, name: "Печиво", count: 2, purchased: false },
+            { id: 3, name: "Сир", count: 1, purchased: false }
         ];
         saveProducts();
     }
@@ -56,7 +56,7 @@ function deleteProduct(productToDelete) {
 }
 
 function createProductSection(product) {
-    let { name, count, purchased } = product;
+    let { id, name, count, purchased } = product;
     const section = document.createElement("section");
     section.className = "products-section";
 
@@ -158,7 +158,7 @@ function addNewProduct(productList, input) {
         return;
     }
 
-    const newProduct = { name: newName, count: 1, purchased: false };
+    const newProduct = { id:Date.now(), name: newName, count: 1, purchased: false };
 
     if (checkProductExists(newName)) {
         alert("Товар з такою назвою вже існує!");
@@ -252,7 +252,7 @@ function updateNameProduct(nameProduct, product) {
     });
 }
 
-function updateSidebar({ name, count, purchased }) {
+function updateSidebar({ id, name, count, purchased }) {
     const remainingList = document.querySelector(".remaining");
     const boughtList = document.querySelector(".bought");
 
