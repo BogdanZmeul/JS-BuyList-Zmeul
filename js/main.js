@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     createAddProductSection(productList);
 
-    productsData = loadProducts();
+    productsData = loadProductsFromLocalStorage();
 
     if (!productsData || productsData.length === 0) {
         productsData = [
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
             { id: 2, name: "Печиво", count: 2, purchased: false },
             { id: 3, name: "Сир", count: 1, purchased: false }
         ];
-        saveProducts();
+        saveProductsToLocalStorage();
     }
 
     productsData.forEach(product => {
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-function saveProducts() {
+function saveProductsToLocalStorage() {
     try {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(productsData));
     } catch (e) {
@@ -34,7 +34,7 @@ function saveProducts() {
     }
 }
 
-function loadProducts() {
+function loadProductsFromLocalStorage() {
     try {
         const storedProducts = localStorage.getItem(STORAGE_KEY);
 
@@ -45,14 +45,14 @@ function loadProducts() {
     }
 }
 
-function addProduct(product) {
+function addProductToLocalStorage(product) {
     productsData.push(product);
-    saveProducts();
+    saveProductsToLocalStorage();
 }
 
-function deleteProduct(productToDelete) {
+function deleteProductFromLocalStorage(productToDelete) {
     productsData = productsData.filter(product => product !== productToDelete);
-    saveProducts();
+    saveProductsToLocalStorage();
 }
 
 function createProductSection(product) {
@@ -96,7 +96,7 @@ function createProductSection(product) {
     purchaseBtn.addEventListener("click", () => {
         purchased = !purchased;
         product.purchased = !product.purchased;
-        saveProducts();
+        saveProductsToLocalStorage();
 
         nameProduct.classList.toggle("purchased", purchased);
         countProduct.classList.toggle("purchased", purchased);
@@ -170,7 +170,7 @@ function addNewProduct(productList, input) {
     productList.appendChild(newProductSection);
 
     updateSidebar(newProduct);
-    addProduct(newProduct)
+    addProductToLocalStorage(newProduct)
 
     input.value = "";
     input.focus();
@@ -193,7 +193,7 @@ function createQuantityButtons(quantityDiv, countProduct, product) {
         }
         minusBtn.classList.toggle("disabled", product.count == 1);
         updateSidebarCount(product.name, product.count);
-        saveProducts();
+        saveProductsToLocalStorage();
     });
     quantityDiv.insertBefore(minusBtn, countProduct);
 
@@ -203,7 +203,7 @@ function createQuantityButtons(quantityDiv, countProduct, product) {
         countProduct.textContent = product.count;
         minusBtn.classList.toggle("disabled", product.count == 1);
         updateSidebarCount(product.name, product.count);
-        saveProducts();
+        saveProductsToLocalStorage();
     });
     quantityDiv.appendChild(plusBtn);
 }
@@ -214,7 +214,7 @@ function createRemoveButton(actions, product, section) {
     removeBtn.addEventListener("click", () => {
         section.remove();
         removeFromSidebar(product.name);
-        deleteProduct(product);
+        deleteProductFromLocalStorage(product);
     });
 
     actions.appendChild(removeBtn);
@@ -246,7 +246,7 @@ function updateNameProduct(nameProduct, product) {
         nameProduct.textContent = newName;
         updateSidebarProductName(product.name, newName);
         product.name = newName;
-        saveProducts();
+        saveProductsToLocalStorage();
 
         input.replaceWith(nameProduct);
     });
